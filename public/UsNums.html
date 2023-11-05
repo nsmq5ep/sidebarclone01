@@ -1,0 +1,41 @@
+
+<html><head><style>pre { white-space: pre-wrap; word-wrap: break-word; max-width: 150ch; }</style></head><body><pre><!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+
+<h2>List of Numbers</h2>
+<button id="generate">Generate</button>
+<ul id="numberList"></ul>
+
+<script>
+$(document).ready(function(){
+    function generateNumbers() {
+        $('#numberList').empty(); // Clear the list
+        for(var i = 0; i < 10; i++) {
+            var number = 8187240000 + Math.floor(Math.random() * 100000); // Generate a random number between 8187240000 and 8187249999
+            $('#numberList').append('<li>' + number + ' <button class="copy" data-number="' + number + '">Copy</button></li>'); // Add the number and a copy button to the list
+        }
+    }
+    generateNumbers();
+
+    $('#generate').click(function() {
+        generateNumbers();
+    });
+
+    $(document).on('click', '.copy', function() {
+        var number = $(this).data('number');
+        navigator.clipboard.writeText(number).then(function() {
+           // alert('Number copied to clipboard');
+        }, function(err) {
+            alert('Could not copy number: ', err);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
+</pre></body></html>

@@ -1,0 +1,38 @@
+<template>
+  <div id="app">
+    <SideBar @load-page="loadPage" />
+    <div id="content" v-html="pageContent"></div>
+    <!-- rest of your app goes here -->
+  </div>
+</template>
+
+<script>
+import SideBar from './components/SideBar'
+
+export default {
+  name: 'App',
+  components: {
+    SideBar
+  },
+  data() {
+    return {
+      pageContent: ''
+    };
+  },
+  methods: {
+    loadPage(href) {
+      fetch(href)
+          .then(response => response.text())
+          .then(data => {
+            this.pageContent = data;
+          });
+    }
+  }
+}
+</script>
+
+<style scoped>
+#content {
+  margin-left: 200px; /* Adjust this value to match the width of your sidebar */
+}
+</style>

@@ -1,0 +1,43 @@
+
+<!-- saved from url=(0051)file:///C:/Users/papa/Downloads/18708414138224.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><p>To add more public HTML pages using the same method, you can follow these steps:</p>
+<ol>
+<li><p><strong>Create the HTML files</strong>: Add your static HTML files to the public folder of your Vue.js project.</p></li>
+<li><p><strong>Update the links array</strong>: For each new HTML file, add a new object to the <code>links</code> array in <code>Sidebar.vue</code>. The object should have a <code>name</code> (the link text), a <code>path</code> (the path to the HTML file), and <code>isVueComponent</code> set to <code>false</code>. For example:</p></li>
+</ol>
+<pre><code class="javascript language-javascript">{ name: 'Another HTML File', path: '/another-html-file.html', isVueComponent: false }
+</code></pre>
+<ol start="3">
+<li><p><strong>Create a new Vue component for each HTML file</strong>: For each new HTML file, create a new Vue component similar to <code>StaticHtml.vue</code>. This component should fetch the HTML file when it's created and store the content in a data property, which is then rendered in the template using <code>v-html</code>.</p></li>
+<li><p><strong>Add a new route for each Vue component</strong>: For each new Vue component, add a new route to your Vue Router configuration. The route should have a <code>path</code> that matches the path in the <code>links</code> array and a <code>component</code> that matches the Vue component.</p></li>
+</ol>
+<p>Here's an example of how you can create a new Vue component and route for an HTML file named 'another-html-file.html':</p>
+<pre><code class="vue language-vue">&lt;!-- AnotherHtml.vue --&gt;
+&lt;template&gt;
+  &lt;div v-html="htmlContent"&gt;&lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      htmlContent: ''
+    };
+  },
+  async created() {
+    const response = await axios.get('/another-html-file.html');
+    this.htmlContent = response.data;
+  }
+};
+&lt;/script&gt;
+</code></pre>
+<pre><code class="javascript language-javascript">import AnotherHtml from './components/AnotherHtml.vue';
+
+const routes = [
+  // other routes...
+  { path: '/another-html-file', name: 'AnotherHtml', component: AnotherHtml }
+];
+</code></pre>
+<p>Please replace 'Another HTML File' and 'another-html-file.html' with the actual name and filename of your HTML file. Also, adjust the paths as needed based on your project structure. Hope this helps! 😊</p></body></html>

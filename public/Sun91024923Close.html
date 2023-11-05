@@ -1,0 +1,18 @@
+<p>Sure, here are the steps to fork a Bitbucket repository to GitHub:</p>
+<ol>
+<li><p><strong>Fork the Bitbucket Repository</strong>: Go to the Bitbucket repository you want to fork, select the More options button in the upper-right corner. Select 'Fork this repository' from the dropdown menu¹.</p></li>
+<li><p><strong>Clone the Bitbucket Repository</strong>: Clone the forked repository to your local system¹. You can do this by running the command <code>git clone --mirror https://USER@bitbucket.org/USER/PROJECT.git</code> in your terminal³.</p></li>
+<li><p><strong>Set the New Remote URL</strong>: Set the new remote URL for GitHub². You can do this by running the command <code>git remote set-url --push origin https://github.com/USERNAME/REPO.git</code>².</p></li>
+<li><p><strong>Push to the New Repository</strong>: Push the changes to the new repository on GitHub². You can do this by running the command <code>git push --mirror</code>².</p></li>
+<li><p><strong>Create a Pull Request</strong>: If you want to merge your changes back into the original repository, you can create a pull request from the forked repository (source) back to the original (destination)¹.</p></li>
+</ol>
+<p>Please replace <code>USER</code>, <code>PROJECT</code>, <code>USERNAME</code>, and <code>REPO</code> with your actual Bitbucket username, Bitbucket project name, GitHub username, and GitHub repository name respectively. </p>
+<p>Remember, this process will migrate the repository with all the branches and commits². If the original repository evolves, these changes do not appear in your fork automatically; you need to sync the fork in order to pull in any outstanding commits¹.</p>
+<p>Source: Conversation with Bing, 5/11/2023
+(1) Fork a repository | Bitbucket Cloud | Atlassian Support. https://support.atlassian.com/bitbucket-cloud/docs/fork-a-repository/.
+(2) How to migrate repositories from Bitbucket to Github. https://medium.com/@craigmroberts/how-to-migrate-repositories-from-bitbucket-to-github-423aa22683b3.
+(3) How to migrate a Bitbucket repository to Github?. https://stackoverflow.com/questions/58801569/how-to-migrate-a-bitbucket-repository-to-github.
+(4) How to Migrate From Bitbucket to GitHub - Blog | GitProtect.io. https://gitprotect.io/blog/how-to-migrate-from-bitbucket-to-github/.
+(5) undefined. https://bing.com/search?q=.
+(6) undefined. https://url-of-the-source-git-repo.git.
+(7) undefined. https://url-of-the-destination-git-repo.git.</p>

@@ -1,0 +1,14 @@
+<p>Sure, here are the steps to rollback to a previous commit both locally and remotely:</p>
+<ol>
+<li><p><strong>Find the commit ID</strong>: Use <code>git log</code> to find the commit ID you want to rollback to¹.</p></li>
+<li><p><strong>Rollback locally</strong>: Use <code>git reset --hard &lt;commit id&gt;</code> to rollback your local repository to the previous commit³. Replace <code>&lt;commit id&gt;</code> with your actual commit ID³.</p></li>
+<li><p><strong>Force push to remote</strong>: After you've rolled back locally, you can force push to the remote repository with <code>git push --force origin master</code>¹. This will overwrite the HEAD in the remote, removing the last commit¹.</p></li>
+</ol>
+<p>Please note that this method will erase everything after your chosen commit³. If you have uncommitted work you want to keep, consider using <code>git stash</code> before resetting².</p>
+<p>Also, be aware that force pushing can disrupt the work of others who have cloned or forked your repository. If others have already pulled the repo, consider using <code>git revert</code> to create a new commit that undoes the changes of the previous commit, then push this new commit¹. This way, you don't rewrite the history¹.</p>
+<p>Remember to replace <code>&lt;commit id&gt;</code> with your actual commit ID³. Let me know if you need further assistance! 😊</p>
+<p>Source: Conversation with Bing, 5/11/2023
+(1) Rolling back local and remote git repository by 1 commit. https://stackoverflow.com/questions/4647301/rolling-back-local-and-remote-git-repository-by-1-commit.
+(2) How to reset your git branch to a previous commit (both local and remote). https://medium.com/coder-nomad/how-to-reset-your-git-branch-to-a-previous-commit-both-local-and-remote-55e0351dca2b.
+(3) How do I revert a Git repository to a previous commit?. https://stackoverflow.com/questions/4114095/how-do-i-revert-a-git-repository-to-a-previous-commit.
+(4) Roll back commits | GitLab. https://docs.gitlab.com/ee/topics/git/rollback_commits.html.</p>
