@@ -2,6 +2,7 @@
   <div>
     <h2>List of Numbers</h2>
     <button @click="generateNumbers">Generate</button>
+    <button @click="generateNumbers2">Generate#2</button>
     <ul>
       <li v-for="(number, index) in numbers" :key="index">
         {{ number }} <button @click="copyNumber(number)">Copy</button>
@@ -22,6 +23,13 @@ export default {
       this.numbers = []; // Clear the list
       for(var i = 0; i < 10; i++) {
         var number = 8187240000 + Math.floor(Math.random() * 100000); // Generate a random number between 8187240000 and 8187249999
+        this.numbers.push(number); // Add the number to the list
+      }
+    },
+    generateNumbers2() {
+      this.numbers = []; // Clear the list
+      for(var i = 0; i < 10; i++) {
+        var number = 757000000 + Math.floor(Math.random() * 100000); // Generate a random number between 757000000 and 757999999
         this.numbers.push(number); // Add the number to the list
       }
     },
